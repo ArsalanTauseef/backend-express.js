@@ -3,9 +3,12 @@ const app = express()
 const port = 3000
 const {getData, addData, updateNewProducts, deleteData} = require('./eCommerce/arr')
 var bodyParser = require('body-parser')
+var cors = require('cors')
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+
+app.use(cors())
 
 app.get('/api/my-products', (req, res) => {
   const products = getData();
